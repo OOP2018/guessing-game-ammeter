@@ -3,33 +3,22 @@ public class GameSolver {
 	/**
 	 * Play a NumberGame and return the solution.
 	 * @param game is the NumberGame to solve
-	 * @return number is the number that we guess
+	 * @return number is the number that program guess
 	 */
 	public int play (NumberGame game) {
-		System.out.println( game.toString() );
+		int min = 1;
+		int max = game.getUpperBound();
 		
-		int number = game.getUpperBound()/2;
+		int number = min + (max - min)/2;
 		int newBound = number;
-		boolean correct = game.guess(number);
-		int count = 2;
-		System.out.print("Your answer? ");
-		System.out.println(number);
-		game.guess(number);
 
-		while (!correct) {
-			System.out.println( game.getMessage() );
-			System.out.print("Your answer? ");
+		while (!game.guess(number)) {
 			if (game.getMessage().contains("too large")) {
-				number = number - (newBound/count);
-				System.out.println(number);
-				correct = game.guess(number);
+				max = number - 1;
+				number  = min + (max - min)/2;
 			} else if (game.getMessage().contains("too small")) {
-				number = number + (newBound/count);
-				System.out.println(number);
-				correct = game.guess(number);
-			}
-			if (newBound/count > 1) {
-				count = count*2;
+				min = number + 1;
+				number = min + (max - min)/2;
 			}
 		}
 		
