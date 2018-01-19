@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class GameConsole {
 
 	/** play the game. */
-	public int play(GuessingGame game) {
+	public int play(PannapatGame game) {
 		Scanner console = new Scanner(System.in);
 
 		System.out.println( game.toString() );

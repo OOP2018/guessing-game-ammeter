@@ -5,7 +5,7 @@ import java.util.Random;
  * @author Pannapat Panpakdee
  */
 
-public class GuessingGame extends NumberGame{
+public class PannapatGame extends NumberGame{
 	/** the largest number that user can guess */
 	private int upperBound;
 	/** the answer of the guessing game */
@@ -17,7 +17,7 @@ public class GuessingGame extends NumberGame{
 	 * Initialize 
 	 * @param upperBound is the max value for the secret number (>1)
 	 */
-	public GuessingGame (int upperBound) {
+	public PannapatGame (int upperBound) {
 		this.upperBound = upperBound;
 		this.secret = getRandomNumber(upperBound);
 		super.setMessage("I'm thinking of a number between 1 and "+upperBound+".");
